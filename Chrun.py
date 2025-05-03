@@ -22,4 +22,4 @@ if st.button('Customer Churn Modeling'):
     predict = model.predict(
         [[CreditScore, Geography, Gender, Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary]]
     )
-    st.write('Customer : ', predict)
+    st.write('Customer Churn Modeling: ', 'Churn' if predict[0] == 1 else 'Tidak Churn')
