@@ -19,7 +19,10 @@ EstimatedSalary = st.number_input('EstimatedSalary')
 predict = ''
 
 if st.button('Customer Churn Modeling'):
-    predict = model.predict(
-        [[CreditScore, Geography, Gender, Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary]]
-    )
-    st.write('Customer Churn Modeling: ', 'Churn' if predict[0] == 1 else 'Tidak Churn')
+    predict = model.predict([[CreditScore, Geography, Gender, Age, Tenure, Balance,
+                              NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary]])
+    
+    if predict[0] == 1:
+        st.error('Customer diprediksi: Churn')
+    else:
+        st.success('Customer diprediksi: Tidak Churn')
